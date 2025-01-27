@@ -40,6 +40,11 @@ DWIN::DWIN(HardwareSerial &port, uint8_t receivePin, uint8_t transmitPin, long b
     port.begin(baud, SERIAL_8N1, receivePin, transmitPin);
     init((Stream *)&port, false);
 }
+DWIN::DWIN(Stream &port, long baud)
+{
+    _baud = baud;                 // Можно сохранить в поле _baud
+    init(&port, false);           // Инициализируем внутренний Stream*
+}
 
 #elif defined(ESP8266)
 DWIN::DWIN(uint8_t receivePin, uint8_t transmitPin, long baud)
