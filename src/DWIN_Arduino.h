@@ -49,6 +49,7 @@ public:
     // Using ESP32 Board
     #elif defined(ESP32)
     DWIN(HardwareSerial& port, uint8_t receivePin, uint8_t transmitPin, long baud=DWIN_DEFAULT_BAUD_RATE);
+    DWIN(Stream& port, long baud=DWIN_DEFAULT_BAUD_RATE);
     
     // Using ESP8266 Board
     #elif defined(ESP8266)
